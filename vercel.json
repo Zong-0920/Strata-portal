@@ -1,0 +1,13 @@
+{
+  "builds": [
+    { "src": "next.config.js", "use": "@vercel/next" }
+  ],
+  "routes": [
+    { "src": "/old-path", "status": 301, "headers": { "Location": "/new-path" } }
+  ],
+  "regions": ["syd1", "iad1"],
+  "crons": [
+    { "path": "/api/cron/notify-owners", "schedule": "0 9 * * 1" }
+  ],
+  "buildCommand": "npm run build && npm run lint"
+}
